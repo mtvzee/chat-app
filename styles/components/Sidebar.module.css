@@ -1,0 +1,33 @@
+.container header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 12px;
+  border-bottom: 1px solid gray;
+}
+.user_info {
+  display: flex;
+  align-items: center;
+}
+.user_info h1 {
+  font-size: 1.5rem;
+  line-height: 2;
+}
+.btn {
+  padding: 8px;
+}
+.btn button {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  padding: 8px 0;
+  font-size: 1.25rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn button:hover {
+  opacity: 0.8;
+}

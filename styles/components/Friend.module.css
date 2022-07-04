@@ -1,0 +1,19 @@
+.container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.container:hover {
+  background: gray;
+}
+.friend_info {
+  flex: 1 1 auto;
+}
+.friend_info h2 {
+  font-size: 1.25rem;
+  line-height: 1.75;
+}
+.time {
+  align-self: flex-start;
+}

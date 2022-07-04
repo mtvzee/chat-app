@@ -1,16 +1,13 @@
 .container {
-  padding: 0 2rem;
-}
-
-.main {
   min-height: 100vh;
-  /* flex: 1; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
-
+.sidebar {
+  flex: 0 0 384px;
+  border-right: 1px solid #000;
+}
+.main {
+  display: none;
+}
 .chat_logo {
   width: 80px;
   height: 80px;
@@ -20,7 +17,17 @@
 }
 
 @media (min-width: 768px) {
+  .container {
+    display: flex;
+  }
   .main {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .sidebar {
+    flex: 0 0 384px;
   }
 }
