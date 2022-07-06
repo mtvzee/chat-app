@@ -4,7 +4,7 @@
   justify-content: space-between;
   height: 80px;
   padding: 0 12px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--c-secondary);
 }
 .user_info {
   display: flex;
@@ -22,6 +22,8 @@
   width: 80%;
   margin: 0 auto;
   padding: 8px 0;
+  background: var(--c-primary);
+  color: var(--c-text);
   font-size: 1.25rem;
   border-radius: 8px;
   border: none;
@@ -29,5 +31,6 @@
   transition: 0.3s;
 }
 .btn button:hover {
-  opacity: 0.8;
+  transform: scale(1.02);
+  background: var(--c-primary-hover);
 }

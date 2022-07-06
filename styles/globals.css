@@ -1,3 +1,9 @@
+:root {
+  --c-text: #322140;
+  --c-primary: #B3E5FC;
+  --c-primary-hover: #8cd7f9;
+  --c-secondary: #2E7D32;
+}
 html {
   font-size: 14px;
 }
@@ -8,8 +14,10 @@ html {
 }
 
 body {
-  color: #fff;
-  background: #4e5465;
+  color: var(--c-text);
+  /* background: #cadbbc; */
+  /* background: #e3f2fd; */
+  background: #fff3e0;
 }
 
 a {

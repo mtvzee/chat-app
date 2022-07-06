@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+}
+.chat_left {
+  position: relative;
+  max-width: 60%;
+  background: #e8ddc1eb;
+  padding: 8px;
+  border-radius: 0 8px 8px 8px;
+}
+
+.chat_left .time {
+  position: absolute;
+  bottom: 0;
+  right: -2.9rem;
+}
