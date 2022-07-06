@@ -3,6 +3,7 @@ import Chat from '../../components/Chat';
 import Sidebar from '../../components/Sidebar';
 import styles from '../../styles/ChatPage.module.css';
 import { AiOutlineSend } from 'react-icons/ai';
+import { BsChevronLeft } from 'react-icons/bs';
 
 const ChatPage = () => {
   return (
@@ -15,6 +16,9 @@ const ChatPage = () => {
       </div>
       <div className={styles.chat}>
         <header>
+          <button>
+            <BsChevronLeft className={styles.chevron} />
+          </button>
           <h2>name</h2>
         </header>
         <main>
@@ -23,7 +27,7 @@ const ChatPage = () => {
         <form className={styles.send}>
           <input type="text" placeholder="メッセージを入力..." />
           <button>
-            <AiOutlineSend className={styles.send_btn}/>
+            <AiOutlineSend className={styles.send_btn} />
           </button>
         </form>
       </div>

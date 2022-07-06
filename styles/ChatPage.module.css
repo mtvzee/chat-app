@@ -12,9 +12,20 @@
   align-items: center;
   border-bottom: 1px solid var(--c-secondary);
   padding: 0 8px;
+  column-gap: 8px;
 }
-.chat header h1 {
-  font-size: 1.5rem;
+.chat header button {
+  height: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.chevron {
+  width: 28px;
+  height: 28px;
+}
+.chat header h2 {
+  font-size: 1.625rem;
 }
 .chat main {
   display: flex;
