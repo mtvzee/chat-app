@@ -1,7 +1,7 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { BsThreeDotsVertical } from 'react-icons/bs';
 import { auth } from '../firebase';
 import styles from '../styles/components/Sidebar.module.css';
+import AddFriend from './AddFriend';
 import Avatar from './Avatar';
 import Dropdown from './Dropdown';
 import Friend from './Friend';
@@ -18,9 +18,7 @@ const Sidebar = () => {
         </div>
         <Dropdown />
       </header>
-      <div className={styles.btn}>
-        <button>友達を追加</button>
-      </div>
+      <AddFriend />
       <ul>
         <Friend />
       </ul>

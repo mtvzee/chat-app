@@ -1,0 +1,23 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 8px 0;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  background: var(--c-primary);
+  color: var(--c-text);
+  font-size: 1.25rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+  background: var(--c-primary-hover);
+}
