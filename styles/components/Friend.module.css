@@ -7,6 +7,9 @@
 .container:hover {
   background: var(--c-primary);
 }
+.avatar {
+  margin-right: 8px;
+}
 .friend_info {
   flex: 1 1 auto;
 }
@@ -16,4 +19,6 @@
 }
 .time {
   align-self: flex-start;
+  font-size: 0.9rem;
+  color: #333;
 }

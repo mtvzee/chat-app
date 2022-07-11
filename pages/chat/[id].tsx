@@ -4,8 +4,9 @@ import Sidebar from '../../components/Sidebar';
 import styles from '../../styles/ChatPage.module.css';
 import { AiOutlineSend } from 'react-icons/ai';
 import { BsChevronLeft } from 'react-icons/bs';
+import { NextPage } from 'next';
 
-const ChatPage = () => {
+const ChatPage: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
