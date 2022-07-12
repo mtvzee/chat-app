@@ -45,7 +45,7 @@ const Friend = ({ chat }: Props) => {
 
   return (
     <li>
-      <Link href={`#`}>
+      <Link href={`/chat/${chat.id}`}>
         <a className={styles.container}>
           <div className={styles.avatar}>
             <Avatar src={userInfo?.photoURL} />

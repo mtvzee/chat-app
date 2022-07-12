@@ -5,8 +5,10 @@ import styles from '../../styles/ChatPage.module.css';
 import { AiOutlineSend } from 'react-icons/ai';
 import { BsChevronLeft } from 'react-icons/bs';
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
 
 const ChatPage: NextPage = () => {
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +19,7 @@ const ChatPage: NextPage = () => {
       </div>
       <div className={styles.chat}>
         <header>
-          <button>
+          <button onClick={() => router.push('/')}>
             <BsChevronLeft className={styles.chevron} />
           </button>
           <h2>name</h2>
