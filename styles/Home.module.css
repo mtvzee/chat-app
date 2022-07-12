@@ -26,6 +26,7 @@
     flex: 1 1 auto;
     justify-content: center;
     align-items: center;
+    row-gap: 24px;
   }
   .sidebar {
     flex: 0 0 384px;
