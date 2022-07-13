@@ -23,11 +23,12 @@ import { auth, db } from '../../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const ChatPage: NextPage = () => {
+  const friendName = sessionStorage.getItem('friendName');
   const router = useRouter();
   const { id } = router.query;
   const [user] = useAuthState(auth);
-  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
+  const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
     const q = query(
@@ -71,7 +72,7 @@ const ChatPage: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>ChatApp - </title>
+        <title>ChatApp - {friendName}</title>
       </Head>
       <div className={styles.sidebar}>
         <Sidebar />
@@ -81,11 +82,18 @@ const ChatPage: NextPage = () => {
           <button onClick={() => router.push('/')}>
             <BsChevronLeft className={styles.chevron} />
           </button>
-          <h2>name</h2>
+          <h2>{friendName}</h2>
         </header>
-        <main>
+        <main className={styles.messages}>
           {messages.map((msg) => (
-            <Chat key={msg.id} />
+            <Chat
+              key={msg.id}
+              id={msg.id}
+              senderEmail={msg.senderEmail}
+              timestamp={msg.timestamp}
+              text={msg.text}
+              photoURL={msg.photoURL}
+            />
           ))}
         </main>
         <form className={styles.send} onSubmit={(e) => handleSubmit(e)}>

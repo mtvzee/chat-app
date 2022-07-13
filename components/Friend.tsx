@@ -43,8 +43,12 @@ const Friend = ({ chat }: Props) => {
     return unsub;
   }, [chat.users, user?.email]);
 
+  const handleClick = () => {
+    sessionStorage.setItem('friendName', userInfo?.displayName);
+  };
+
   return (
-    <li>
+    <li onClick={handleClick}>
       <Link href={`/chat/${chat.id}`}>
         <a className={styles.container}>
           <div className={styles.avatar}>
@@ -52,7 +56,11 @@ const Friend = ({ chat }: Props) => {
           </div>
           <div className={styles.friend_info}>
             <h2>{userInfo?.displayName}</h2>
-            <p>{chat.latestMessage}</p>
+            <p>
+              {chat.latestMessage!.length > 20
+                ? chat.latestMessage?.slice(0, 20).concat('...')
+                : chat.latestMessage}
+            </p>
           </div>
           <div className={styles.time}>
             {getTime(chat.timestamp, 'MM/DD HH:mm')}

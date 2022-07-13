@@ -42,7 +42,7 @@ const Sidebar = () => {
     <div className={styles.container}>
       <header>
         <div className={styles.user_info}>
-          <Avatar src={user?.photoURL} width={40} height={40} />
+          <Avatar src={user?.photoURL} width={45} height={45} />
           <h1>{user?.displayName}</h1>
         </div>
         <Dropdown />

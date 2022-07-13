@@ -1,5 +1,23 @@
+/* ユーザーのメッセージ  */
+.chat_right {
+  position: relative;
+  align-self: flex-end;
+  max-width: 60%;
+  background: var(--c-primary);
+  padding: 8px;
+  border-radius: 8px 0 8px 8px;
+}
+.time_right {
+  position: absolute;
+  bottom: 0;
+  left: -2.8rem;
+  font-size: 0.875rem;
+}
+
+/* 友達のメッセージ */
 .container {
   display: flex;
+  column-gap: 4px;
 }
 .chat_left {
   position: relative;
@@ -8,9 +26,9 @@
   padding: 8px;
   border-radius: 0 8px 8px 8px;
 }
-
-.chat_left .time {
+.time_left {
   position: absolute;
   bottom: 0;
-  right: -2.9rem;
+  right: -2.8rem;
+  font-size: 0.875rem;
 }

@@ -1,19 +1,33 @@
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
 import styles from '../styles/components/Chat.module.css';
+import { Message } from '../types/type';
+import { getTime } from '../utils/getTime';
 import Avatar from './Avatar';
 
-const Chat = () => {
+const Chat = ({ id, senderEmail, timestamp, text, photoURL }: Message) => {
+  const [user] = useAuthState(auth);
   return (
-    <div className={styles.container}>
-      <Avatar src="/" />
-      <div className={styles.chat_left}>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
-          vitae illum sit itaque a hic quasi, fugit dolore et id voluptatem
-          facere commodi magni quia rem dolor provident temporibus at!
-        </p>
-        <span className={styles.time}>14:00</span>
-      </div>
-    </div>
+    <>
+      {senderEmail === user?.email ? (
+        <div className={styles.chat_right}>
+          <p>{text}</p>
+          <span className={styles.time_right}>
+            {getTime(timestamp, 'HH:mm')}
+          </span>
+        </div>
+      ) : (
+        <div className={styles.container}>
+          <Avatar src={photoURL} />
+          <div className={styles.chat_left}>
+            <p>{text}</p>
+            <span className={styles.time_left}>
+              {getTime(timestamp, 'HH:mm')}
+            </span>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

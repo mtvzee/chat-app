@@ -8,6 +8,7 @@
   background: var(--c-primary);
 }
 .avatar {
+  flex: 0 0 40px;
   margin-right: 8px;
 }
 .friend_info {
@@ -17,7 +18,12 @@
   font-size: 1.25rem;
   line-height: 1.75;
 }
+.friend_info p {
+  font-size: 0.875rem;
+  color: #666;
+}
 .time {
+  flex: 0 0 100px;
   align-self: flex-start;
   font-size: 0.9rem;
   color: #333;

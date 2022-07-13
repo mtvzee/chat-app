@@ -27,11 +27,12 @@
 .chat header h2 {
   font-size: 1.625rem;
 }
-.chat main {
+.messages {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
   padding: 0 4%;
+  row-gap: 16px;
 }
 .send {
   display: flex;
