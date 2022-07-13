@@ -18,7 +18,9 @@ const Chat = ({ id, senderEmail, timestamp, text, photoURL }: Message) => {
         </div>
       ) : (
         <div className={styles.container}>
-          <Avatar src={photoURL} />
+          <div>
+            <Avatar src={photoURL} />
+          </div>
           <div className={styles.chat_left}>
             <p>{text}</p>
             <span className={styles.time_left}>

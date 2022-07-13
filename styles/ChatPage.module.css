@@ -4,10 +4,10 @@
 .chat {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
 }
 .chat header {
-  height: 80px;
+  flex: 0 0 80px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--c-secondary);
@@ -28,18 +28,19 @@
   font-size: 1.625rem;
 }
 .messages {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  overflow-y: scroll;
   padding: 0 4%;
   row-gap: 16px;
 }
 .send {
+  flex: 0 0 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  height: 80px;
   padding: 0 16px;
   border-top: 1px solid var(--c-secondary);
 }

@@ -3,6 +3,8 @@ import type { AppProps } from 'next/app';
 import { auth } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Login from '../components/Login';
+import { ChakraProvider } from '@chakra-ui/react';
+import { theme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [user, loading] = useAuthState(auth);
@@ -26,7 +28,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   if (!user) {
     return <Login />;
   } else {
-    return <Component {...pageProps} />;
+    return (
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    );
   }
 }
 
