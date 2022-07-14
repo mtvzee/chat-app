@@ -6,7 +6,7 @@ import { AiOutlineSend } from 'react-icons/ai';
 import { BsChevronLeft } from 'react-icons/bs';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Message } from '../../types/type';
 import {
   addDoc,
@@ -23,12 +23,13 @@ import { auth, db } from '../../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const ChatPage: NextPage = () => {
-  const friendName = sessionStorage.getItem('friendName');
   const router = useRouter();
   const { id } = router.query;
-  const [user] = useAuthState(auth);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
+  const endOfMsgRef = useRef<HTMLDivElement>(null);
+  const friendName = sessionStorage.getItem('friendName');
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
     const q = query(
@@ -45,6 +46,10 @@ const ChatPage: NextPage = () => {
     );
     return unsub;
   }, [id]);
+
+  useEffect(() => {
+    endOfMsgRef.current?.scrollIntoView();
+  }, [messages]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -95,6 +100,7 @@ const ChatPage: NextPage = () => {
               photoURL={msg.photoURL}
             />
           ))}
+          <div ref={endOfMsgRef} />
         </main>
         <form className={styles.send} onSubmit={(e) => handleSubmit(e)}>
           <input
