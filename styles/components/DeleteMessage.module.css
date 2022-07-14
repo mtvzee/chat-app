@@ -1,0 +1,78 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  width: 350px;
+  height: 200px;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  row-gap: 20px;
+  z-index: 20;
+}
+.close_btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.footer_btn {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.delete {
+  width: 150px;
+  padding: 8px 0;
+  background: rgb(247, 77, 77);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.cancel {
+  width: 150px;
+  padding: 8px 0;
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    width: 600px;
+    height: 400px;
+    padding: 20px 40px;
+    row-gap: 50px;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .footer_btn {
+    column-gap: 30px;
+  }
+  .delete {
+    width: 250px;
+    padding: 16px 0;
+  }
+  .cancel {
+    width: 250px;
+    padding: 16px 0;
+  }
+}
