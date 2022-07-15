@@ -32,7 +32,7 @@ const Chat = ({ id, senderEmail, timestamp, text, photoURL }: Message) => {
           </div>
         </div>
       )}
-      {isOpen && <DeleteMessage text={text} setIsOpen={setIsOpen} />}
+      {isOpen && <DeleteMessage messageId={id} text={text} setIsOpen={setIsOpen} />}
     </>
   );
 };

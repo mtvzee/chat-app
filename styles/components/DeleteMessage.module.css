@@ -46,20 +46,35 @@
   color: #fff;
   border-radius: 8px;
   font-weight: 700;
+  transition: 0.2s;
+}
+.delete:hover {
+  background: rgb(249, 47, 47);
+  transform: scale(1.01);
 }
 .cancel {
   width: 150px;
   padding: 8px 0;
   border: 1px solid #000;
   border-radius: 8px;
+  transition: 0.2s;
+}
+.cancel:hover {
+  transform: scale(1.01);
+  /* box-shadow: 0 0 4px gray; */
+  box-shadow: 1px 1px gray;
 }
 
 @media (min-width: 768px) {
   .content {
     width: 600px;
-    height: 400px;
-    padding: 20px 40px;
-    row-gap: 50px;
+    height: 350px;
+    padding: 16px 40px;
+    row-gap: 60px;
+  }
+  .close_btn {
+    top: 20px;
+    right: 20px;
   }
   .title {
     font-size: 1.5rem;

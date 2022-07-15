@@ -6,6 +6,7 @@
   background: var(--c-primary);
   padding: 8px;
   border-radius: 8px 0 8px 8px;
+  cursor: pointer;
 }
 .time_right {
   position: absolute;
@@ -25,6 +26,7 @@
   background: #e8ddc1eb;
   padding: 8px;
   border-radius: 0 8px 8px 8px;
+  cursor: pointer;
 }
 .time_left {
   position: absolute;
