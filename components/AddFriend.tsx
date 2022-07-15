@@ -8,11 +8,13 @@ const AddFriend = () => {
 
   const addFriend = async () => {
     const friendEmail = prompt('友達のメールアドレスを入力');
-    await addDoc(collection(db, 'chats'), {
-      latestMessage: '',
-      timestamp: serverTimestamp(),
-      users: [user?.email, friendEmail],
-    });
+    if (friendEmail != null && friendEmail !== '') {
+      await addDoc(collection(db, 'chats'), {
+        latestMessage: '',
+        timestamp: serverTimestamp(),
+        users: [user?.email, friendEmail],
+      });
+    }
   };
   return (
     <div className={styles.container}>
