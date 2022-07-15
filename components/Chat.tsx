@@ -24,7 +24,7 @@ const Chat = ({ id, senderEmail, timestamp, text, photoURL }: Message) => {
           <div>
             <Avatar src={photoURL} />
           </div>
-          <div className={styles.chat_left} onClick={() => setIsOpen(true)}>
+          <div className={styles.chat_left}>
             <p>{text}</p>
             <span className={styles.time_left}>
               {getTime(timestamp, 'HH:mm')}
@@ -32,7 +32,9 @@ const Chat = ({ id, senderEmail, timestamp, text, photoURL }: Message) => {
           </div>
         </div>
       )}
-      {isOpen && <DeleteMessage messageId={id} text={text} setIsOpen={setIsOpen} />}
+      {isOpen && (
+        <DeleteMessage messageId={id} text={text} setIsOpen={setIsOpen} />
+      )}
     </>
   );
 };
