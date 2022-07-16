@@ -13,10 +13,7 @@ type Props = {
 const DeleteFriendBtn = ({ id }: Props) => {
   const setShowDeleteBtn = useSetRecoilState(showDeleteFriendBtn);
 
-  const handleDeleteFriend = async (
-    e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>
-  ) => {
-    e.stopPropagation();
+  const handleDeleteFriend = async () => {
     await deleteDoc(doc(db, `chats/${id}`));
     setShowDeleteBtn(false);
   };
@@ -26,7 +23,7 @@ const DeleteFriendBtn = ({ id }: Props) => {
         className={styles.overlay}
         onClick={() => setShowDeleteBtn(false)}
       ></div>
-      <div className={styles.delete} onClick={(e) => handleDeleteFriend(e)}>
+      <div className={styles.delete} onClick={handleDeleteFriend}>
         <BiTrash size="25" />
       </div>
     </>
