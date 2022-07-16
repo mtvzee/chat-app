@@ -13,7 +13,10 @@ type Props = {
 const DeleteFriendBtn = ({ id }: Props) => {
   const setShowDeleteBtn = useSetRecoilState(showDeleteFriendBtn);
 
-  const handleDeleteFriend = async (e: MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleDeleteFriend = async (
+    e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>
+  ) => {
+    e.stopPropagation();
     await deleteDoc(doc(db, `chats/${id}`));
     setShowDeleteBtn(false);
   };
