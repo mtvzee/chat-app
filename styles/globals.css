@@ -4,6 +4,8 @@
   --c-primary: #b3e5fc;
   --c-primary-hover: #8cd7f9;
   --c-secondary: #2e7d32;
+  --c-btn: rgb(247, 77, 77);
+  --c-btn-hover: rgb(247, 47, 47);
 }
 html {
   font-size: 14px;

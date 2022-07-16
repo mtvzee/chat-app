@@ -7,6 +7,8 @@ import { auth, db } from '../firebase';
 import { useEffect, useState } from 'react';
 import {
   collection,
+  deleteDoc,
+  doc,
   DocumentData,
   getDocs,
   onSnapshot,
@@ -15,6 +17,9 @@ import {
 } from 'firebase/firestore';
 import { getFriendEmail } from '../utils/getFriendEmail';
 import { getTime } from '../utils/getTime';
+import DeleteFriendBtn from './DeleteFriendBtn';
+import { useRecoilValue } from 'recoil';
+import { showDeleteFriendBtn } from '../atoms/buttonAtom';
 
 type Props = {
   chat: Chat;
@@ -29,6 +34,7 @@ type UserInfo = {
 const Friend = ({ chat }: Props) => {
   const [user] = useAuthState(auth);
   const [userInfo, setUserInfo] = useState<UserInfo | DocumentData>();
+  const showDeleteBtn = useRecoilValue(showDeleteFriendBtn);
 
   useEffect(() => {
     const q = query(
@@ -43,12 +49,12 @@ const Friend = ({ chat }: Props) => {
     return unsub;
   }, [chat.users, user?.email]);
 
-  const handleClick = () => {
+  const handleClickFriend = () => {
     sessionStorage.setItem('friendName', userInfo?.displayName);
   };
 
   return (
-    <li onClick={handleClick}>
+    <li onClick={handleClickFriend}>
       <Link href={`/chat/${chat.id}`}>
         <a className={styles.container}>
           <div className={styles.avatar}>
@@ -65,6 +71,7 @@ const Friend = ({ chat }: Props) => {
           <div className={styles.time}>
             {getTime(chat.timestamp, 'MM/DD HH:mm')}
           </div>
+          {showDeleteBtn && <DeleteFriendBtn id={chat.id} />}
         </a>
       </Link>
     </li>

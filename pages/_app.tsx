@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Login from '../components/Login';
 import { ChakraProvider } from '@chakra-ui/react';
 import { theme } from '../styles/theme';
+import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [user, loading] = useAuthState(auth);
@@ -30,7 +31,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   } else {
     return (
       <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
+        <RecoilRoot>
+          <Component {...pageProps} />
+        </RecoilRoot>
       </ChakraProvider>
     );
   }
