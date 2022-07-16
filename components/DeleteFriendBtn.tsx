@@ -1,4 +1,5 @@
 import { deleteDoc, doc } from 'firebase/firestore';
+import { MouseEvent } from 'react';
 import { BiTrash } from 'react-icons/bi';
 import { useSetRecoilState } from 'recoil';
 import { showDeleteFriendBtn } from '../atoms/buttonAtom';
@@ -12,7 +13,7 @@ type Props = {
 const DeleteFriendBtn = ({ id }: Props) => {
   const setShowDeleteBtn = useSetRecoilState(showDeleteFriendBtn);
 
-  const handleDeleteFriend = async (e) => {
+  const handleDeleteFriend = async (e: MouseEvent<HTMLDivElement, MouseEvent>) => {
     await deleteDoc(doc(db, `chats/${id}`));
     setShowDeleteBtn(false);
   };
