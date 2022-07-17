@@ -19,6 +19,10 @@
   border: none;
   background: transparent;
   cursor: pointer;
+  transition: 0.3s;
+}
+.chat header button:hover {
+  transform: scale(1.3);
 }
 .chevron {
   width: 28px;

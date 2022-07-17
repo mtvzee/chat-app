@@ -1,27 +1,19 @@
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db } from '../firebase';
+import { useState } from 'react';
 import styles from '../styles/components/AddFriend.module.css';
+import AddFriendModal from './AddFriendModal';
 
 const AddFriend = () => {
-  const [user] = useAuthState(auth);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const addFriend = async () => {
-    const friendEmail = prompt('友達のメールアドレスを入力');
-    if (friendEmail != null && friendEmail !== '') {
-      await addDoc(collection(db, 'chats'), {
-        latestMessage: '',
-        timestamp: serverTimestamp(),
-        users: [user?.email, friendEmail],
-      });
-    }
-  };
   return (
-    <div className={styles.container}>
-      <button className={styles.btn} onClick={addFriend}>
-        友達を追加
-      </button>
-    </div>
+    <>
+      <div className={styles.container}>
+        <button className={styles.btn} onClick={() => setIsOpen(true)}>
+          友達を追加
+        </button>
+      </div>
+      {isOpen && <AddFriendModal setIsOpen={setIsOpen} />}
+    </>
   );
 };
 
