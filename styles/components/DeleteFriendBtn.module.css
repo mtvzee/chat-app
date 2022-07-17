@@ -23,5 +23,4 @@
   background: var(--c-btn-hover);
   box-shadow: 0 0 2px;
   z-index: 3;
-  /* transform: translateX(-1px); */
 }
