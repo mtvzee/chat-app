@@ -16,34 +16,39 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { AiOutlineClose } from 'react-icons/ai';
 import { auth, db } from '../firebase';
 import styles from '../styles/components/AddFriendModal.module.css';
+import { Chat } from '../types/type';
 
 type Props = {
+  chatList: Chat[];
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const AddFriendModal = ({ setIsOpen }: Props) => {
+const AddFriendModal = ({ chatList, setIsOpen }: Props) => {
   const [input, setInput] = useState('');
   const [user] = useAuthState(auth);
+
+  const chatAlreadyExists = (email: string) =>
+    chatList.find(
+      (chat) =>
+        chat.users.includes(user?.email ?? '') && chat.users.includes(email)
+    );
 
   const addFriend = async (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) => {
     e.preventDefault();
-    await addDoc(collection(db, 'chats'), {
-      latestMessage: '',
-      timestamp: serverTimestamp(),
-      users: [user?.email, input],
-    });
-    setInput('');
-    setIsOpen(false);
+    if (!chatAlreadyExists(input)) {
+      await addDoc(collection(db, 'chats'), {
+        latestMessage: '',
+        timestamp: serverTimestamp(),
+        users: [user?.email, input],
+      });
+      setInput('');
+      setIsOpen(false);
+    }
   };
 
   const addDummy = async () => {
-    // await addDoc(collection(db, 'chats'), {
-    //   latestMessage: '',
-    //   timestamp: serverTimestamp(),
-    //   users: [user?.email, 'dummypz8@gmail.com'],
-    // });
     await setDoc(doc(db, `chats/${user?.uid}`), {
       latestMessage: '',
       timestamp: serverTimestamp(),

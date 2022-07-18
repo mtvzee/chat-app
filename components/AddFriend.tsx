@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import styles from '../styles/components/AddFriend.module.css';
+import { Chat } from '../types/type';
 import AddFriendModal from './AddFriendModal';
 
-const AddFriend = () => {
+type Props = {
+  chatList: Chat[];
+};
+
+const AddFriend = ({ chatList }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -12,7 +17,7 @@ const AddFriend = () => {
           友達を追加
         </button>
       </div>
-      {isOpen && <AddFriendModal setIsOpen={setIsOpen} />}
+      {isOpen && <AddFriendModal chatList={chatList} setIsOpen={setIsOpen} />}
     </>
   );
 };

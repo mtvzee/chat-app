@@ -47,7 +47,7 @@ const Sidebar = () => {
         </div>
         <Dropdown />
       </header>
-      <AddFriend />
+      <AddFriend chatList={chatList} />
       <ul>
         {chatList.map((chat) => (
           <Friend key={chat.id} chat={chat} />
