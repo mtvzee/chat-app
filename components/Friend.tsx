@@ -7,10 +7,7 @@ import { auth, db } from '../firebase';
 import { useEffect, useState } from 'react';
 import {
   collection,
-  deleteDoc,
-  doc,
   DocumentData,
-  getDocs,
   onSnapshot,
   query,
   where,

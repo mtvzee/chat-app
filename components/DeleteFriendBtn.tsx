@@ -1,5 +1,4 @@
 import { deleteDoc, doc } from 'firebase/firestore';
-import { MouseEvent } from 'react';
 import { BiTrash } from 'react-icons/bi';
 import { useSetRecoilState } from 'recoil';
 import { showDeleteFriendBtn } from '../atoms/buttonAtom';
